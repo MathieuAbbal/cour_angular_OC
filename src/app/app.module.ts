@@ -11,7 +11,7 @@ import { SingleBookComponent } from './book-list/single-book/single-book.compone
 import { BookFormComponent } from './book-list/book-form/book-form.component';
 
 import { AuthService } from './services/auth.service';
-import { BookService } from './services/book.service';
+import { BooksService } from './services/books.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
 import {HttpClientModule} from '@angular/common/http';
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
 
   ],
-  providers: [AuthService, BookService, AuthGuardService],
+  providers: [AuthService, BooksService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,6 +21,7 @@ export class AppComponent {
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    console.log(app)
     const analytics = getAnalytics(app);
   }
 }
