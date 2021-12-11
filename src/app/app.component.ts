@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import * as firebase from 'firebase';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,8 +21,8 @@ export class AppComponent {
     };
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    console.log(app)
-    const analytics = getAnalytics(app);
+    firebase.initializeApp(firebaseConfig);
+    console.log(firebaseConfig)
+    
   }
 }
