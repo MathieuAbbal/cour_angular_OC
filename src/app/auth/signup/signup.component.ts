@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -10,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  signUpForm: FormGroup | undefined;
-  errorMessage: string | undefined;
+  signUpForm!: FormGroup;
+  errorMessage!: string;
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
@@ -28,18 +29,23 @@ export class SignupComponent implements OnInit {
     });
   }
   onSubmit() {
-   /* const email = this.signUpForm.get('email').value;
-    const password = this.signUpForm.get('password').value;
+    const email = this.signUpForm.get('email')!.value;
+    const password = this.signUpForm.get('password')!.value;
     
     this.authService.createNewUser(email, password).then(
       () => {
         this.router.navigate(['/books']);
+        console.log('utilisateur créer !',createNewUser )
       },
       (error) => {
         this.errorMessage = error;
       }
-    );*/
+    );
   }
 
   
+}
+
+function createNewUser(arg0: string, createNewUser: any) {
+  throw new Error('Function not implemented.');
 }
