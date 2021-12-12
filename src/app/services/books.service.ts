@@ -6,11 +6,11 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class BooksService {
-  books!: Book[];
+  books: Book[] =  [];
   booksSubject = new Subject<Book[]>();
 
   constructor() {
-   // this.getBooks();
+    this.getBooks();
   }
 
   emitBooks() {
@@ -32,7 +32,7 @@ export class BooksService {
   }
 
   getSingleBook(id: number) {
-    return new Promise((resolve, reject) => {
+    return new Promise<Book>((resolve, reject) => {
       firebase.database().ref('/books/' + id).once('value').then(
         (data) => {
           resolve(data.val());
@@ -63,19 +63,21 @@ export class BooksService {
           console.log('Fichier non trouvé : ' + error);
         }
       )
-    }
+    }/*
     const bookIndexToRemove = this.books.findIndex(
       (bookEl) => {
-        return bookEl === book;
+        if(bookEl === book) {
+          return true;
+        };
       }
     );
-    this.books.splice(bookIndexToRemove, 1);
+    this.books.splice(bookIndexToRemove, 1);*/
     this.saveBooks();
     this.emitBooks();
   }
 
   uploadFile(file: File) {
-    return new Promise(
+    return new Promise<Book>(
       (resolve, reject) => {
         const almostUniqueFileName = Date.now().toString();
         const upload = firebase.storage().ref()
