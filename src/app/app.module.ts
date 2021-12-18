@@ -19,7 +19,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import {Routes} from'@angular/router';
+import { DialogComponent } from './dialog/dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//import { MatDialog } from '@angular/material/dialog';
 const appRoutes: Routes = [
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
@@ -40,7 +43,8 @@ const appRoutes: Routes = [
     SigninComponent,
     BookListComponent,
     SingleBookComponent,
-    BookFormComponent
+    BookFormComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+//    MatDialog
 
   ],
   providers: [AuthService, BooksService, AuthGuardService],

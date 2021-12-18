@@ -3,7 +3,7 @@ import { BooksService } from '../services/books.service';
 import { Book } from '../models/Book.model';
 import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
-
+//import {MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
@@ -14,7 +14,9 @@ export class BookListComponent implements OnInit, OnDestroy {
   books: Book[] = [];
   booksSubscription!: Subscription;
 
-  constructor(private booksService: BooksService, private router: Router) {}
+  constructor(private booksService: BooksService,
+     private router: Router,
+   /*  public dialog: MatDialog*/) {}
 
   ngOnInit() {
     this.booksSubscription = this.booksService.booksSubject.subscribe(

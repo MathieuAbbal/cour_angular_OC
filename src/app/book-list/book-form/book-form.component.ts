@@ -46,13 +46,13 @@ export class BookFormComponent implements OnInit {
   }
   onUploadFile(file: File) {
     this.fileIsUploading = true;
-  /*  this.booksService.uploadFile(file).then(
-      (url: string) => {
+    this.booksService.uploadFile(file).then(
+      (url: any) => {
         this.fileUrl = url;
         this.fileIsUploading = false;
         this.fileUploaded = true;
       }
-    );*/
+    );
   }
   detectFiles(event :any) {
     this.onUploadFile(event.target.files[0]);

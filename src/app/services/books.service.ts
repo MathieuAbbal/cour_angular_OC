@@ -63,15 +63,12 @@ export class BooksService {
           console.log('Fichier non trouvé : ' + error);
         }
       )
-    }/*
+    }
     const bookIndexToRemove = this.books.findIndex(
-      (bookEl) => {
-        if(bookEl === book) {
-          return true;
-        };
-      }
-    );
-    this.books.splice(bookIndexToRemove, 1);*/
+      (bookEl) => bookEl === book);
+      
+    console.log(bookIndexToRemove);
+    this.books.splice(bookIndexToRemove, 1);
     this.saveBooks();
     this.emitBooks();
   }
