@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
 import { BooksService } from '../services/books.service';
 import { Book } from '../models/Book.model';
 import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
-//import {MatDialog} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
@@ -16,8 +17,14 @@ export class BookListComponent implements OnInit, OnDestroy {
 
   constructor(private booksService: BooksService,
      private router: Router,
-   /*  public dialog: MatDialog*/) {}
-
+     private dialog: MatDialog) {}
+     openDialog() {
+      const dialogRef = this.dialog.open(DialogComponent);
+  
+      dialogRef.afterClosed().subscribe(()=> {
+        
+      });
+    }
   ngOnInit() {
     this.booksSubscription = this.booksService.booksSubject.subscribe(
       (books: Book[]) => {

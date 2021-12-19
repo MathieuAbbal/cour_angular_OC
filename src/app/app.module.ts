@@ -22,7 +22,12 @@ import {Routes} from'@angular/router';
 import { DialogComponent } from './dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//import { MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button'
+
+
+
+
 const appRoutes: Routes = [
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
@@ -54,7 +59,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-//    MatDialog
+    MatDialogModule,
+    MatButtonModule,
+   
 
   ],
   providers: [AuthService, BooksService, AuthGuardService],
